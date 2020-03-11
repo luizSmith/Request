@@ -1,14 +1,31 @@
-
-
 $("form").submit(function(e){
+
 	e.preventDefault();
+	
+	var param = {};
+	var valor = $(".valor");
+
+	$(".key").each(function(i,element) {
+		param[$(element).val()] = $(valor[i]).val();
+	});
+
+	if (/^http/.test($(".link").val()) != true) {
+		$(".link").val("https://" + $(".link").val());
+	}
+
+	$(".json").html('');
+
 	$.ajax({
-		url: "https://" + $(".link").val(),
+		url: $(".link").val(),
+		data: param,
 		dataType: 'json',
 		method: $(".metodo").val(),
 		success: function(result) {
 			$(".json").html(JSON.stringify(result, undefined, 2));
-  		}
+  		},
+  		error: function (jqXhr, textStatus, errorMessage) {
+        	$(".json").html("<p>404</p>");
+    	}
   	});
 });
 
@@ -26,10 +43,10 @@ $(".mais").click(function(){
     		</div>	
   		</div>
 	`;
+
 	$("#formulario").append(div);
 
 	$(".menos").click(function(){
 		$(this).parent().closest(".parametros").remove();
 	});
 });
-
