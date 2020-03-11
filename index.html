@@ -14,7 +14,7 @@
   		</div>
 	</div>
 	<div class="container">
-		<form method="POST">
+		<form method="POST" id="formulario">
 			<div class="form-row">
 				<div class="col-md-1 mb-3">
       				<select class="form-control metodo">
@@ -23,65 +23,33 @@
   				   	</select>
     			</div>
     			<div class="col-md-8 mb-3">
-    			  	<input type="text" class="form-control link" placeholder="http://www.sitedasuapreferencia.php?variavel=669">
+    			  	<input type="text" class="form-control link" placeholder="www.sitedasuapreferencia.php?variavel=669">
     			</div>
     			<div class="col-md-1 mb-3">
     			  	<button type="submit" class="btn btn-success enviar">Enviar</button>
     			</div>
     		</div>
-    		<div class="form-row">    			
+    		<div class="form-row parametros"> 			
     			<div class="col-md-4 mb-3">
-    				<input type="text" class="form-control" placeholder="Key">
+    				<input type="text" class="form-control key" placeholder="Key">
     			</div>
     			<div class="col-md-4 mb-3">
-    				<input type="text" class="form-control" placeholder="Valor">
+    				<input type="text" class="form-control valor" placeholder="Valor">
     			</div>
     			<div class="col-md-2 mb-3">
-    				<button class="btn btn-warning">+</button>
+    				<button class="btn btn-warning mais">+</button>
     			</div>
   			</div>
 		</form>
-		<div class="highlight">
-			<pre>
-				<code class="language-html" data-lang="html">
 
-				</code>
-			</pre>
+		<div class="mx-auto border bg-light" style="width: auto; height: auto">
+  			<pre class="json"></pre>
 		</div>
 
-		<code>
-		<pre style="word-wrap: break-word; white-space: pre-wrap;">
-			<div id="resposta"></div>
-		</pre>
-		</code>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<!-- <script type="text/javascript" src="js/consulta.js"></script> -->
-	<script type="text/javascript">
-		$("form").submit(function(e){
-			e.preventDefault();
-
- 		// 	$.ajax({
- 		// 		url:"https://www.backsite.com.br/publico/service/onepage/select.geral.bandeiras.php", 
-			//     dataType: 'json',
-
-			//     success: function (data,status,xhr) {   // success callback function
-			//         console.log('foi');
-			//     },
-			//     error: function (jqXhr, textStatus, errorMessage) { // error callback 
-			//         console.log('Não');
-			//     }
-			// });
-
-
-			$.ajax({
-				url: "https://www.backsite.com.br/publico/service/onepage/select.geral.bandeiras.php", success: function(result){
-    			console.log('oi');
-  			}});
-		});
-
-	</script>
+	<script type="text/javascript" src="js/consulta.js"></script>
 </body>
 </html>
