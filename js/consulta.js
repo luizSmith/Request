@@ -1,15 +1,17 @@
 $("form").submit(function(e){
 
-	e.preventDefault();
+	e.preventDefault(); //cancela o evento no caso o submit
 	
 	var param = {};
 	var valor = $(".valor");
 
 	$(".key").each(function(i,element) {
-		param[$(element).val()] = $(valor[i]).val();
+		if ($(element).val() != '') {
+			param[$(element).val()] = $(valor[i]).val(); // param[key] = valor
+		}		
 	});
 
-	if (/^http/.test($(".link").val()) != true) {
+	if (/^https:\/\/|^http:\/\//.test($(".link").val()) != true) { //se começar com https:// ou http://
 		$(".link").val("https://" + $(".link").val());
 	}
 
@@ -21,7 +23,7 @@ $("form").submit(function(e){
 		dataType: 'json',
 		method: $(".metodo").val(),
 		success: function(result) {
-			$(".json").html(JSON.stringify(result, undefined, 2));
+			$(".json").html(JSON.stringify(result, undefined, 2)); // converte valores em javascript em uma string JSON
   		},
   		error: function (jqXhr, textStatus, errorMessage) {
         	$(".json").html("<p>404</p>");
@@ -29,7 +31,8 @@ $("form").submit(function(e){
   	});
 });
 
-$(".mais").click(function(){
+$(".mais").click(function(e){
+	e.preventDefault();
 	var div = `
 		<div class="form-row parametros">					
     		<div class="col-md-4 mb-3">
@@ -44,7 +47,7 @@ $(".mais").click(function(){
   		</div>
 	`;
 
-	$("#formulario").append(div);
+	$("#formulario").append(div); // adiciona a ultima posição dentro do elemento
 
 	$(".menos").click(function(){
 		$(this).parent().closest(".parametros").remove();
