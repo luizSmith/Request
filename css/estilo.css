@@ -2,3 +2,22 @@
 	width: auto;
 	height: auto;
 }
+
+.jumbotron {
+	background-image: url("../img/white_blue_1366x768.jpg");
+	color:white;
+	
+}
+
+.jumbotron h1 {
+	font-size: 50pt;
+	font-weight: 350;
+}
+
+.jumbotron p {
+	font-weight: 250;
+}
+
+body {
+	background-color: #FBFBFB;
+}
