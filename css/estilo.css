@@ -1,4 +1,4 @@
-#code {
+#response {
 	width: auto;
 	height: auto;
 }
@@ -20,4 +20,22 @@
 
 body {
 	background-color: #FBFBFB;
+}
+
+#status{
+	font-size: 12pt;
+	font-weight: bold;
+}
+
+#code {
+	font-size: 12pt;
+	font-weight: 550;
+}
+
+.sucess {
+	color: #2CD60A;
+}
+
+.error {
+	color: #CD0808;
 }

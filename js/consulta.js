@@ -20,15 +20,27 @@ $("form").submit(function(e){
 	$.ajax({
 		url: $(".link").val(),
 		data: param,
-		dataType: 'json',
-		method: $(".metodo").val(),
-		success: function(result) {
-			$(".json").html(JSON.stringify(result, undefined, 2)); // converte valores em javascript em uma string JSON
-  		},
-  		error: function (jqXhr, textStatus, errorMessage) {
-        	$(".json").html("<p>404</p>");
-    	}
-  	});
+		method: $(".metodo").val()
+  	}).done(function(response, textStatus, result) {
+
+    	$("#code").addClass("sucess");
+    	$("#code").html(`${result.status} ${result.statusText}`);
+    	$(".json").html(response);
+  	
+  	}).fail(function(result, textStatus, error) {
+  		
+    	$("#code").addClass("error");
+    	$("#code").html(`${result.status} ${result.statusText}`);
+
+    	var resp = {
+    		status: result.status,
+    		statusText: result.statusText,
+    		responseText: result.responseText
+    	};
+
+    	$(".json").html(JSON.stringify(resp, undefined, 2)); // converte valores em javascript em uma string JSON
+  	
+  	})
 });
 
 $(".mais").click(function(e){
