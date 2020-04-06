@@ -15,11 +15,16 @@
 }
 
 .jumbotron p {
-	font-weight: 250;
+	font-weight: 340;
 }
 
-body {
+body, .active {
 	background-color: #FBFBFB;
+}
+
+.nav-tabs .nav-link.active {
+	background-color: #FBFBFB;
+	    border-color: #dee2e6 #dee2e6 #FBFBFB;
 }
 
 #status{
@@ -38,4 +43,8 @@ body {
 
 .error {
 	color: #CD0808;
+}
+
+.tox {
+	width: 100%;
 }

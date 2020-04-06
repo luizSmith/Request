@@ -55,7 +55,7 @@ $("form").submit(function(e){
 $(".mais").click(function(e){
 	e.preventDefault();
 	var div = `
-		<div class="form-row parametros">					
+		<div class="form-row linha">					
     		<div class="col-md-4 mb-3">
     			<input type="text" class="form-control key" placeholder="Key">
     		</div>
@@ -68,9 +68,10 @@ $(".mais").click(function(e){
   		</div>
 	`;
 
-	$("#formulario").append(div); // adiciona a ultima posição dentro do elemento
+	$(".parametros").append(div); // adiciona a ultima posição dentro do elemento
 
-	$(".menos").click(function(){
-		$(this).parent().closest(".parametros").remove();
+	$(".menos").click(function(e){
+		e.preventDefault();
+		$(this).parent().closest(".linha").remove();
 	});
 });
