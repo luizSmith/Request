@@ -20,15 +20,24 @@ $("form").submit(function(e){
 	$.ajax({
 		url: $(".link").val(),
 		data: param,
-		method: $(".metodo").val()
+		method: $(".metodo").val(),
+		dataType: $(".type").val()
   	}).done(function(response, textStatus, result) {
 
+  		$("#code").removeClass('error');
     	$("#code").addClass("sucess");
+
     	$("#code").html(`${result.status} ${result.statusText}`);
-    	$(".json").html(response);
+    	
+    	if ($(".type").val() == "json") {
+    		$(".json").html(JSON.stringify(response, undefined, 2)); // converte valores em javascript em uma string JSON
+    	} else {
+    		$(".json").html(response);
+    	}    	
   	
   	}).fail(function(result, textStatus, error) {
-  		
+
+  		$("#code").removeClass('sucess');
     	$("#code").addClass("error");
     	$("#code").html(`${result.status} ${result.statusText}`);
 
@@ -40,7 +49,7 @@ $("form").submit(function(e){
 
     	$(".json").html(JSON.stringify(resp, undefined, 2)); // converte valores em javascript em uma string JSON
   	
-  	})
+  	});
 });
 
 $(".mais").click(function(e){

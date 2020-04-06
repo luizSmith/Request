@@ -18,36 +18,46 @@
 			<div class="form-row">
 				<div class="col-md-1 mb-3">
       				<select class="form-control metodo">
-  				   		<option value="GET">GET</option>
-						<option value="POST">POST</option>
-  				   	</select>
-    			</div>
-    			<div class="col-md-8 mb-3">
-    			  	<input type="text" class="form-control link" placeholder="www.sitedasuapreferencia.php?variavel=669">
-    			</div>
-    			<div class="col-md-1 mb-3">
-    			  	<button type="submit" class="btn btn-primary enviar">Enviar</button>
-    			</div>
-    		</div>
-    		<div class="form-row parametros"> 			
-    			<div class="col-md-4 mb-3">
-    				<input type="text" class="form-control key" placeholder="Key">
-    			</div>
-    			<div class="col-md-4 mb-3">
-    				<input type="text" class="form-control valor" placeholder="Valor">
-    			</div>
-    			<div class="col-md-2 mb-3">
-    				<button class="btn btn-warning mais">+</button>
-    			</div>
-  			</div>
+    			   		<option value="GET">GET</option>
+    				    <option value="POST">POST</option>
+    			   	</select>
+                </div>
+  			   <div class="col-md-8 mb-3">
+  			       <input type="text" class="form-control link" placeholder="www.sitedasuapreferencia.php?variavel=669">
+  			   </div>
+      			<div class="col-md-1 mb-3">
+      			   <button type="submit" class="btn btn-primary enviar">Enviar</button>
+      			</div>
+            </div>
+            <div class="form-row">
+                <div class="col-md-9 mb-3">
+                    <label>Retorno</label>
+                    <select class="form-control type">
+                        <option value="json">application/json</option>
+                        <option value="xml">application/xml</option>            
+                        <option value="script">application/javascript</option>
+                        <option value="html">text/html</option>
+                    </select>
+                </div>
+            </div>
+  		    <div class="form-row parametros"> 			
+        		<div class="col-md-4 mb-3">
+        			<input type="text" class="form-control key" placeholder="Key">
+        		</div>
+        		<div class="col-md-4 mb-3">
+        			<input type="text" class="form-control valor" placeholder="Valor">
+        		</div>
+        		<div class="col-md-2 mb-3">
+        			<button class="btn btn-warning mais">+</button>
+        		</div>
+			</div>
 		</form>
-    <div class="form-group">
-      <label id="status">Status: <span id="code"></span></label>
-		  <div class="mx-auto border bg-light mb-3" id="response">
-  			<pre class="json"></pre>
-		  </div>
-    </div>
-
+        <div class="form-group">
+            <label id="status">Status: <span id="code"></span></label>
+            <div class="mx-auto border bg-light mb-3" id="response">
+            	<pre class="json"></pre>
+            </div>
+        </div>
 	</div>
 	<script src="js/jquery-3.4.1.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
